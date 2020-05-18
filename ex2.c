@@ -1,4 +1,3 @@
-
 int main(){
     unsigned long long int a[5],max,min,sum=0;
     int i;

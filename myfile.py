@@ -33,7 +33,7 @@ def permute(l1,l2, l, r):
             done = True
     else: 
         done = False
-        for i in xrange(l,r+1): 
+        for i in range(l,r+1): 
             l2[l], l2[i] = l2[i], l2[l] 
             permute(l1, l2, l+1, r) 
             if(done == True):
@@ -49,7 +49,9 @@ def getVars(node,corr_list):
         if(p.__class__.__name__=="TypeDecl"):
             var_name = getattr(p,"declname")
             var_type = getattr(getattr(p,"type"),"names")[0]
-            # print (var_type,var_name)
+            print("------------------")
+            print (var_type,var_name)
+            print("------------------")
             addtovarlist(var_type,var_name,corr_list)
 
 def visit(node):
@@ -67,7 +69,11 @@ def printfn(ast):
 
 def ReplaceAttrMatch(n1,n2):
     attrs1 = list(n1.attr_names)
+    # print("Attrs1 : \n")
+    # print(attrs1)
     attrs2 = list(n2.attr_names)
+    # print("Attrs2 : \n")
+    # print(attrs2)
     for attr in attrs1:
         if(attr == "name" or attr == "declname"):
             # if(n1.__class__.__name__ == n2.__class__.__name__ == "ID"):
@@ -153,7 +159,7 @@ def checkWithReplacedArgs(node1,node2,hasrun=False):
         else:
             for i in range(0,len(l1)-len(l2)):
                 l2.append(None)
-            permute(l1,l2,0,len(l2)-1)
+            permute(l1,l2,0,len(l2)-1)  #???
     result = Has(gnode1,gnode2,ReplaceAttrMatch)
     # print(Map,result)
     return result
