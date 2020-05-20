@@ -53,6 +53,11 @@ for text in data2:
     bigrams = ngrams(token, 2)
     l2 = list(ngrams(token, 2))
 
+lst_bigrams = list(bigrams)
+
+hashes = [(hash(lst_bigrams[i]), i) for i in range(len(lst_bigrams))]
+print(lst_bigrams)
+print(hashes[0:4])
 
 # Both jaccard similarity and cosine similarity appear to be highest for ngram = 2 , i.e bigrams
 jsimilarity = jaccard_similarity(l1,l2)
