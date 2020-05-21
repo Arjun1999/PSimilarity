@@ -8,7 +8,11 @@ ctx = client.parse("python_ex1.py")
 # it = ctx.filter("//python:Call").iterate(bblfsh.TreeOrder.LEVEL_ORDER)
 # for node in it:
 # print(node)
-it = ctx.filter("//python:Call")
+# it = client.parse("python_ex1.py").iterate(bblfsh.TreeOrder.POST_ORDER)
+# for node in it:
+#     print(node)
+it = ctx.filter("//*[@role='Number' and @role='Literal']")
+# print(it)
 for node in it:
     # print internal node:
     print(node)
