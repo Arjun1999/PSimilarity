@@ -1,3 +1,4 @@
+55
 digraph G {
 
     // Attributes
@@ -8,19 +9,16 @@ digraph G {
     // Groups
     subgraph "cluster___main__" { "__main__"; label = "__main__"; fontsize = "10"; fontcolor = "black"; style = "bold"; color="#000000cc"; }
     subgraph "cluster_<module>" { "<module>"; label = "<module>"; fontsize = "10"; fontcolor = "black"; style = "bold"; color="#000000cc"; }
-    subgraph "cluster_sum_first_five" { "sum_first_five"; label = "sum_first_five"; fontsize = "10"; fontcolor = "black"; style = "bold"; color="#000000cc"; }
-    subgraph "cluster_next_five" { "next_five"; label = "next_five"; fontsize = "10"; fontcolor = "black"; style = "bold"; color="#000000cc"; }
+    subgraph "cluster_sum_first_ten" { "sum_first_ten"; label = "sum_first_ten"; fontsize = "10"; fontcolor = "black"; style = "bold"; color="#000000cc"; }
 
     // Nodes
     "__main__" [color = "#9999e5ff", label = "__main__\ncalls: 1\ntime: 0.000000s"];
-    "<module>" [color = "#e50000ff", label = "<module>\ncalls: 1\ntime: 0.000640s"];
-    "sum_first_five" [color = "#9994e5ff", label = "sum_first_five\ncalls: 1\ntime: 0.000018s"];
-    "next_five" [color = "#9995e5ff", label = "next_five\ncalls: 1\ntime: 0.000013s"];
+    "<module>" [color = "#e50000ff", label = "<module>\ncalls: 1\ntime: 0.000437s"];
+    "sum_first_ten" [color = "#9a8ee5ff", label = "sum_first_ten\ncalls: 1\ntime: 0.000031s"];
 
     // Edges
     "__main__" -> "<module>" [color = "#b20000ff", label = "1"];
-    "<module>" -> "sum_first_five" [color = "#7773b2ff", label = "1"];
-    "<module>" -> "next_five" [color = "#7774b2ff", label = "1"];
+    "<module>" -> "sum_first_ten" [color = "#786eb2ff", label = "1"];
 
 }
 

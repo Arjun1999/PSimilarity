@@ -12,11 +12,12 @@ digraph G {
 
     // Nodes
     "__main__" [color = "#9999e5ff", label = "__main__\ncalls: 1\ntime: 0.000000s"];
-    "<module>" [color = "#e50000ff", label = "<module>\ncalls: 1\ntime: 0.000363s"];
-    "sum_first_ten" [color = "#9a8fe5ff", label = "sum_first_ten\ncalls: 1\ntime: 0.000023s"];
+    "<module>" [color = "#e50000ff", label = "<module>\ncalls: 1\ntime: 0.000437s"];
+    "sum_first_ten" [color = "#9a8ee5ff", label = "sum_first_ten\ncalls: 1\ntime: 0.000031s"];
 
     // Edges
     "__main__" -> "<module>" [color = "#b20000ff", label = "1"];
-    "<module>" -> "sum_first_ten" [color = "#776fb2ff", label = "1"];
+    "<module>" -> "sum_first_ten" [color = "#786eb2ff", label = "1"];
 
 }
+
