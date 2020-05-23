@@ -1,12 +1,13 @@
 import ast
 from astor import to_source
 
+# opens the file and generates AST. 
 with open("sample2.py", "r") as source_code:
     tree = ast.parse(source_code.read())
     print(ast.dump(tree))
 
 
-
+# To modify the nodes as we traverse the AST
 class MyVisitor(ast.NodeTransformer):
    def visit_Name(self, node):
         if(isinstance(node, ast.Name)):
@@ -15,7 +16,7 @@ class MyVisitor(ast.NodeTransformer):
         return node
 
 
-
+# To perform the above defined modification on the source code of our choice
 def removeVariableNames(filename):
     file = open(filename)
     contents = file.read()
