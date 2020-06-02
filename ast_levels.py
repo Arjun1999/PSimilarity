@@ -35,7 +35,7 @@ def ast_print(node, level=0):
         elif isinstance(value, ast.AST):
             ast_print(value, level=level+1)
 
-filename = 'python_ex3.py'
+filename = 'sir_sum.py'
 input_tree = mutate(filename)
 ast_print(input_tree)
 
@@ -43,20 +43,20 @@ level0 = sorted(level0)
 level1 = sorted(level1)
 level2 = sorted(level2)
 
-output_file2_0 = open("prog2_lev0.txt", "w")
+output_file_lev0 = open("prog1_lev0.txt", "w")
 for i in range(len(level0)):
-    output_file2_0.write(level0[i])
-    output_file2_0.write('\n')
+    output_file_lev0.write(level0[i])
+    output_file_lev0.write('\n')
 
-output_file2_1 = open("prog2_lev1.txt", "w")
+output_file_lev1 = open("prog1_lev1.txt", "w")
 for i in range(len(level1)):
-    output_file2_1.write(level1[i])
-    output_file2_1.write('\n')
+    output_file_lev1.write(level1[i])
+    output_file_lev1.write('\n')
 
-output_file2_2 = open("prog2_lev2.txt", "w")
+output_file_lev2 = open("prog1_lev2.txt", "w")
 for i in range(len(level2)):
-    output_file2_2.write(level2[i])
-    output_file2_2.write('\n')
+    output_file_lev2.write(level2[i])
+    output_file_lev2.write('\n')
 
 # print("LEVEL0 = ", level0)
 # print("LEVEL1 = ", level1)
