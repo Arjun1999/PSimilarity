@@ -9,8 +9,8 @@ def cosine_similarity(l1, l2):
     vec1 = Counter(l1)
     vec2 = Counter(l2)
 
-    print("Vec 1 : ", vec1)
-    print("Vec 2: ", vec2)
+    # print("Vec 1 : ", vec1)
+    # print("Vec 2: ", vec2)
 
     intersection = set(vec1.keys()) & set(vec2.keys())
     numerator = sum([vec1[x] * vec2[x] for x in intersection])
@@ -102,12 +102,30 @@ def generate_fingerprints(file_name, k, t) :
     # print("Document Fingerprints: ", document_fingerprints)
     
 
-fingerprints1 = generate_fingerprints("ex1.c", 4, 7)
-fingerprints2 = generate_fingerprints("ex2.c", 4, 7)
+# fingerprints1 = generate_fingerprints("python_ex1.py", 2, 4)
+# fingerprints2 = generate_fingerprints("python_ex2.py", 2, 4)
 
-print("Fingerprints for File1 : \n", fingerprints1)
-print("\n\nFingerprints for File2 : \n", fingerprints2)
+fingerprints1_0 = generate_fingerprints("prog1_lev0.txt", 11, 15)
+fingerprints2_0 = generate_fingerprints("prog2_lev0.txt", 11, 15)
 
-print("Cosine Similarity : ", cosine_similarity(fingerprints1, fingerprints2))
-# Cosine similarity seems to be highest for k = 4 and t = 7, should try others
+fingerprints1_1 = generate_fingerprints("prog1_lev1.txt", 11, 15)
+fingerprints2_1 = generate_fingerprints("prog2_lev1.txt", 11, 15)
+
+fingerprints1_2 = generate_fingerprints("prog1_lev2.txt", 11, 15)
+fingerprints2_2 = generate_fingerprints("prog2_lev2.txt", 11, 15)
+
+# print("Fingerprints for File1 : \n", fingerprints1)
+# print("\n\nFingerprints for File2 : \n", fingerprints2)
+
+cosine_similarity_lev0 = cosine_similarity(fingerprints1_0, fingerprints2_0)
+cosine_similarity_lev1 = cosine_similarity(fingerprints1_1, fingerprints2_1)
+cosine_similarity_lev2 = cosine_similarity(fingerprints1_2, fingerprints2_2)
+
+print("Cosine similarity Level 0 : \n", cosine_similarity_lev0)
+print("Cosine similarity Level 1 : \n", cosine_similarity_lev1)
+print("Cosine similarity Level 2 : \n", cosine_similarity_lev2)
+
+total_similarity_score = ((0.5*cosine_similarity_lev0) + (0.3*cosine_similarity_lev1) + (0.2*cosine_similarity_lev2))
+print("Total similarity score : \n", total_similarity_score)
+# Cosine similarity seems to be highest for k = 4 and t = 7, should try others.
 # However , not convinced whether Cosine Similarity should be a measure to compare fingerprints.

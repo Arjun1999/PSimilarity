@@ -4,18 +4,24 @@ client = bblfsh.BblfshClient("localhost:9432")
 # ctx = client.parse("ex1.c")
 # print(ctx)
 
-ctx = client.parse("python_ex1.py")
+ctx = client.parse("simple.py")
+ast = ctx.root
+it = ast.iterate(bblfsh.TreeOrder.POSITION_ORDER)
+for node in it:
+    print(node)
+# ast = ctx.get_all()
+# print(ctx)
 # it = ctx.filter("//python:Call").iterate(bblfsh.TreeOrder.LEVEL_ORDER)
 # for node in it:
 # print(node)
 # it = client.parse("python_ex1.py").iterate(bblfsh.TreeOrder.POST_ORDER)
 # for node in it:
 #     print(node)
-it = ctx.filter("//*[@role='Number' and @role='Literal']")
-# print(it)
-for node in it:
-    # print internal node:
-    print(node)
+# it = ctx.filter("//*[@role='Number' and @role='Literal']")
+# # print(it)
+# for node in it:
+#     # print internal node:
+#     print(node)
     # or get as Python dictionary/value:
     # doSomething(node.get())
 

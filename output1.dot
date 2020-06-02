@@ -14,9 +14,9 @@ digraph G {
 
     // Nodes
     "__main__" [color = "#9999e5ff", label = "__main__\ncalls: 1\ntime: 0.000000s"];
-    "<module>" [color = "#e50000ff", label = "<module>\ncalls: 1\ntime: 0.000640s"];
-    "sum_first_five" [color = "#9994e5ff", label = "sum_first_five\ncalls: 1\ntime: 0.000018s"];
-    "next_five" [color = "#9995e5ff", label = "next_five\ncalls: 1\ntime: 0.000013s"];
+    "<module>" [color = "#e50000ff", label = "<module>\ncalls: 1\ntime: 0.000622s"];
+    "sum_first_five" [color = "#9994e5ff", label = "sum_first_five\ncalls: 1\ntime: 0.000017s"];
+    "next_five" [color = "#9995e5ff", label = "next_five\ncalls: 1\ntime: 0.000014s"];
 
     // Edges
     "__main__" -> "<module>" [color = "#b20000ff", label = "1"];

@@ -1,0 +1,5 @@
+Call(func=Name(id='x', ctx=Load()), args=[Num(n=6)], keywords=[])
+If(test=Compare(left=Name(id='x', ctx=Load()), ops=[Eq()], comparators=[Num(n=3)]), body=[Expr(value=Call(func=Name(id='x', ctx=Load()), args=[BinOp(left=Name(id='x', ctx=Load()), op=Add(), right=Num(n=1))], keywords=[]))], orelse=[])
+Name(id='x', ctx=Store())
+Name(id='x', ctx=Store())
+Num(n=0)

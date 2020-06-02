@@ -35,7 +35,7 @@ def ast_print(node, level=0):
         elif isinstance(value, ast.AST):
             ast_print(value, level=level+1)
 
-filename = 'sample2.py'
+filename = 'python_ex3.py'
 input_tree = mutate(filename)
 ast_print(input_tree)
 
@@ -43,6 +43,21 @@ level0 = sorted(level0)
 level1 = sorted(level1)
 level2 = sorted(level2)
 
-print("LEVEL0 = ", level0)
-print("LEVEL1 = ", level1)
-print("LEVEL2 = ", level2)
+output_file2_0 = open("prog2_lev0.txt", "w")
+for i in range(len(level0)):
+    output_file2_0.write(level0[i])
+    output_file2_0.write('\n')
+
+output_file2_1 = open("prog2_lev1.txt", "w")
+for i in range(len(level1)):
+    output_file2_1.write(level1[i])
+    output_file2_1.write('\n')
+
+output_file2_2 = open("prog2_lev2.txt", "w")
+for i in range(len(level2)):
+    output_file2_2.write(level2[i])
+    output_file2_2.write('\n')
+
+# print("LEVEL0 = ", level0)
+# print("LEVEL1 = ", level1)
+# print("LEVEL2 = ", level2)

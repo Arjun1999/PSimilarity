@@ -1,10 +1,11 @@
 import ast
 from astor import to_source
+import zss
 
 # opens the file and generates AST. 
 with open("sample2.py", "r") as source_code:
     tree = ast.parse(source_code.read())
-    print(ast.dump(tree))
+    # print(ast.dump(tree))
 
 
 # To modify the nodes as we traverse the AST
@@ -25,5 +26,8 @@ def removeVariableNames(filename):
     transformed = nodeVisitor.visit(parsed)
     return (ast.dump(ast.parse(to_source(transformed))))
 
-tree = removeVariableNames('sample2.py')
-print(tree)
+tree1 = removeVariableNames('sample1.py')
+tree2 = removeVariableNames('sample2.py')
+
+# dist = zss.simple_distance(tree1, tree2)
+print(tree1)

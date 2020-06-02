@@ -1,0 +1,7 @@
+Assign(targets=[Name(id='x', ctx=Store())], value=Num(n=0))
+Call(func=Name(id='x', ctx=Load()), args=[Name(id='x', ctx=Load())], keywords=[])
+Call(func=Name(id='x', ctx=Load()), args=[], keywords=[])
+For(target=Name(id='x', ctx=Store()), iter=Call(func=Name(id='x', ctx=Load()), args=[Num(n=11)], keywords=[]), body=[AugAssign(target=Name(id='x', ctx=Store()), op=Add(), value=Name(id='x', ctx=Load()))], orelse=[])
+Name(id='x', ctx=Store())
+Return(value=Name(id='x', ctx=Load()))
+arguments(args=[], vararg=None, kwonlyargs=[], kw_defaults=[], kwarg=None, defaults=[])
