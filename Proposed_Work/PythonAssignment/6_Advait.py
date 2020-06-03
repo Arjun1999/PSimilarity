@@ -7,6 +7,6 @@ def gcd(x,y):
       return x
     else : 
       return gcd(y,x%y)
-x = input("Enter any number ")
-y = input("Enter another smaller number ")
+x = int(input("Enter any number "))
+y = int(input("Enter another smaller number "))
 print (gcd(x,y))

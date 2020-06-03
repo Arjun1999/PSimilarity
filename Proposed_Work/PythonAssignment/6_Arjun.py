@@ -12,6 +12,6 @@ def gcd(x,y):
   return x
  else: 
   return gcd(y,x%y)
-x=input("Enter first number:")	
-y=input("Enter another number:")
+x=int(input("Enter first number:"))
+y=int(input("Enter another number:"))
 print ("The greatest common divisor is ",gcd(x,y))

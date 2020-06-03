@@ -1,5 +1,5 @@
-x=input("enter a number:")
-y=input("enter another one:")
+x=int(input("enter a number:"))
+y=int(input("enter another one:"))
 def ensure(x,y):
 	if(x>y):
 		return True

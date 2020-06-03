@@ -11,4 +11,4 @@ def gcd(x, y):
       return gcd(y, x%y)
   else:
     return gcd(y, x)
-print (gcd(input("Enter number 1: "), input("Enter number 2: ")))
+print (gcd(int(input("Enter number 1: ")), int(input("Enter number 2: "))))

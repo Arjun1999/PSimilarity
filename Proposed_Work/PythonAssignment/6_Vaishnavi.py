@@ -9,6 +9,6 @@ def gcd(a,b):
  else:
   return gcd(b,a)
 if "_name_" == "_main_":
- a = input("Enter a number:")
- b = input("Enter a number:")
+ a = int(input("Enter a number:"))
+ b = int(input("Enter a number:"))
  print (gcd(a,b))

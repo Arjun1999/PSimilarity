@@ -23,6 +23,6 @@ def gcd(x,y):
  	else:
  		 print ("Please enter the numbers in correct order.")
 
-a=input("Enter x ")
-b=input("Enter y ")
+a=int(input("Enter x "))
+b=int(input("Enter y "))
 print (gcd(a,b))

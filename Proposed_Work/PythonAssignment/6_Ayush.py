@@ -3,8 +3,8 @@ def ensure(x,y):
         return True
     else:
         return False
-x = input ("input the first number :")
-y = input ("input the second number : ")
+x = int(input ("input the first number :"))
+y = int(input ("input the second number : "))
 #the following conversion to positive numbers is to calculate gcd of negative numbers.
 if (x < 0):
     x = -1*x

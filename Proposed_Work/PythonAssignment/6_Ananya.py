@@ -16,7 +16,7 @@ def gcd(a,b):
 			return None  #gcd of 0 and 0 is undefined.
 		return gcd(b,a)
 
-num1=input('enter number one:')
-num2=input('enter number two:')
+num1=int(input('enter number one:'))
+num2=int(input('enter number two:'))
 print ('gcd of',num1,'and',num2,'is',gcd(num1,num2))
 	
