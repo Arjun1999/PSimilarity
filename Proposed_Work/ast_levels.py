@@ -2,6 +2,7 @@ import ast
 import sys
 from astor import to_source
 
+# To modify the nodes(change identifier names) as we traverse the AST
 class MyNodeTransformer(ast.NodeTransformer):
     def visit_Name(self, node):
         if(isinstance(node, ast.Name)):
@@ -9,9 +10,11 @@ class MyNodeTransformer(ast.NodeTransformer):
             return ast.copy_location(result, node)
         return node
 
+# To perform the above defined modification on the source code of our choice
 def mutate(filename):
     file = open(filename)
     contents = file.read()
+    # Generate the AST
     parsed = ast.parse(contents)
     nodeVisitor = MyNodeTransformer()
     transformed = nodeVisitor.visit(parsed)
@@ -20,6 +23,8 @@ def mutate(filename):
 level0 = []
 level1 = []
 level2 = []
+
+# Extraction of nodes from every level
 def ast_print(node, level=0):
     if level==0:
         level0.append(ast.dump(node))
@@ -27,7 +32,7 @@ def ast_print(node, level=0):
         level1.append(ast.dump(node))
     elif level==2:
         level2.append(ast.dump(node))
-    # print("Level = " + str(level) + '  ' * level + str_node(node))
+
     for field, value in ast.iter_fields(node):
         if isinstance(value, list):
             for item in value:
