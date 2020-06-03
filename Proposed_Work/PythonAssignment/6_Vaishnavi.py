@@ -8,7 +8,7 @@ def gcd(a,b):
      return gcd(b,a%b)
  else:
   return gcd(b,a)
-if "_name_" == "_main_":
- a = int(input("Enter a number:"))
- b = int(input("Enter a number:"))
- print (gcd(a,b))
+if __name__ == "__main__":
+    a = int(input("Enter a number:"))
+    b = int(input("Enter a number:"))
+    print (gcd(a,b))
