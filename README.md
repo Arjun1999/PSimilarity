@@ -7,7 +7,7 @@ I. Follow these steps to run our proposed implementation :
 
 Here, <index_number> refers to an integer value associated with a file. For simplicity choose 1 and 2 as your <index_numbers> for program 1 and program 2 respectively.
 
-The test codes in the Test_Codes folder can be used.
+The test codes in the 'Test_Codes' folder can be used. The folder 'PythonAssignment' contains codes submitted by IMT2017 students for Assignment 7, Question 6 of the ESS101 Programming I [Python] Course.
 
 For eg.
 
