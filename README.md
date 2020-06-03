@@ -2,15 +2,17 @@ This project aims to search for various methods to capture similarity among prog
 
 I. Follow these steps to run our proposed implementation :
 
-1) run the command : python ast_levels.py <index_number> /path/to/program1
-2) run the command : python ast_levels.py <index_number> /path/to/program2
+1) run the command : python generate_ast.py <index_number> /path/to/program1
+2) run the command : python generate_ast.py <index_number> /path/to/program2
 
 Here, <index_number> refers to an integer value associated with a file. For simplicity choose 1 and 2 as your <index_numbers> for program 1 and program 2 respectively.
 
+The test codes in the Test_Codes folder can be used.
+
 For eg.
 
-- python ast_levels.py 1 /path/to/program1
-- python ast_levels.py 2 /path/to/program2
+- python ast.py 1 Test_Codes/test1a.py
+- python ast.py 2 Test_Codes/test1b.py
 
 3) run the command : python winnowing.py program<index_number> program<index_number>
 
