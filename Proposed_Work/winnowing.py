@@ -109,14 +109,14 @@ def generate_fingerprints(file_name, k, t) :
 program1 = sys.argv[1]
 program2 = sys.argv[2]
 
-fingerprints1_0 = generate_fingerprints((program1+"_lev0.txt"), 11, 15)
-fingerprints2_0 = generate_fingerprints((program2+"_lev0.txt"), 11, 15)
+fingerprints1_0 = generate_fingerprints((program1+"_lev0.txt"), 13, 17)
+fingerprints2_0 = generate_fingerprints((program2+"_lev0.txt"), 13, 17)
 
-fingerprints1_1 = generate_fingerprints((program1+"_lev1.txt"), 11, 15)
-fingerprints2_1 = generate_fingerprints((program2+"_lev1.txt"), 11, 15)
+fingerprints1_1 = generate_fingerprints((program1+"_lev1.txt"), 13, 17)
+fingerprints2_1 = generate_fingerprints((program2+"_lev1.txt"), 13, 17)
 
-fingerprints1_2 = generate_fingerprints((program1+"_lev2.txt"), 11, 15)
-fingerprints2_2 = generate_fingerprints((program2+"_lev2.txt"), 11, 15)
+fingerprints1_2 = generate_fingerprints((program1+"_lev2.txt"), 13, 17)
+fingerprints2_2 = generate_fingerprints((program2+"_lev2.txt"), 13, 17)
 
 # print("Fingerprints for File1 : \n", fingerprints1)
 # print("\n\nFingerprints for File2 : \n", fingerprints2)
