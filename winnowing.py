@@ -1,4 +1,5 @@
 import nltk
+import sys
 import math
 from nltk import word_tokenize
 from nltk.util import ngrams
@@ -105,14 +106,17 @@ def generate_fingerprints(file_name, k, t) :
 # fingerprints1 = generate_fingerprints("python_ex1.py", 2, 4)
 # fingerprints2 = generate_fingerprints("python_ex2.py", 2, 4)
 
-fingerprints1_0 = generate_fingerprints("prog1_lev0.txt", 11, 15)
-fingerprints2_0 = generate_fingerprints("prog2_lev0.txt", 11, 15)
+program1 = sys.argv[1]
+program2 = sys.argv[2]
 
-fingerprints1_1 = generate_fingerprints("prog1_lev1.txt", 11, 15)
-fingerprints2_1 = generate_fingerprints("prog2_lev1.txt", 11, 15)
+fingerprints1_0 = generate_fingerprints((program1+"_lev0.txt"), 11, 15)
+fingerprints2_0 = generate_fingerprints((program2+"_lev0.txt"), 11, 15)
 
-fingerprints1_2 = generate_fingerprints("prog1_lev2.txt", 11, 15)
-fingerprints2_2 = generate_fingerprints("prog2_lev2.txt", 11, 15)
+fingerprints1_1 = generate_fingerprints((program1+"_lev1.txt"), 11, 15)
+fingerprints2_1 = generate_fingerprints((program2+"_lev1.txt"), 11, 15)
+
+fingerprints1_2 = generate_fingerprints((program1+"_lev2.txt"), 11, 15)
+fingerprints2_2 = generate_fingerprints((program2+"_lev2.txt"), 11, 15)
 
 # print("Fingerprints for File1 : \n", fingerprints1)
 # print("\n\nFingerprints for File2 : \n", fingerprints2)

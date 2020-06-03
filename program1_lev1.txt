@@ -1,0 +1,3 @@
+Assign(targets=[Name(id='x', ctx=Store())], value=Num(n=0))
+Assign(targets=[Name(id='x', ctx=Store())], value=Num(n=10))
+While(test=Compare(left=Name(id='x', ctx=Load()), ops=[Lt()], comparators=[Name(id='x', ctx=Load())]), body=[Expr(value=Call(func=Name(id='x', ctx=Load()), args=[Name(id='x', ctx=Load())], keywords=[])), Assign(targets=[Name(id='x', ctx=Store())], value=BinOp(left=Name(id='x', ctx=Load()), op=Add(), right=Num(n=1)))], orelse=[])

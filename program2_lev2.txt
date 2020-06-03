@@ -1,0 +1,5 @@
+Call(func=Name(id='x', ctx=Load()), args=[Name(id='x', ctx=Load())], keywords=[])
+Expr(value=Call(func=Name(id='x', ctx=Load()), args=[Name(id='x', ctx=Load())], keywords=[]))
+Name(id='x', ctx=Store())
+Name(id='x', ctx=Store())
+Num(n=10)
