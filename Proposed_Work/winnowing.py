@@ -26,7 +26,7 @@ def cosine_similarity(l1, l2):
     return float(numerator) / denominator
 
 
-# Has to be changed to include rightmost minimum too
+# Could be changed to include rightmost minimum too
 def get_min(get_key = lambda x: x):
     def rightmost_minimum(l):
         minimum = float('inf')
@@ -131,5 +131,5 @@ print("Cosine similarity Level 2 : \n", cosine_similarity_lev2)
 
 total_similarity_score = ((0.5*cosine_similarity_lev0) + (0.3*cosine_similarity_lev1) + (0.2*cosine_similarity_lev2))
 print("Total similarity score : \n", total_similarity_score)
-# Cosine similarity seems to be highest for k = 4 and t = 7, should try others.
-# However , not convinced whether Cosine Similarity should be a measure to compare fingerprints.
+# Cosine similarity seems to be highest for k = 11 and t = 15, should try others.
+

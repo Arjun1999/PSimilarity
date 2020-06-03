@@ -1,9 +1,13 @@
 import networkx as nx
 # import pygraphviz
 import gmatch4py as gm
+import sys
 
-G1 = nx.MultiDiGraph(nx.drawing.nx_pydot.read_dot("pycallgraph1.dot"))
-G2 = nx.MultiDiGraph(nx.drawing.nx_pydot.read_dot("pycallgraph2.dot"))
+filename1 = sys.argv[1]
+filename2 = sys.argv[2]
+
+G1 = nx.MultiDiGraph(nx.drawing.nx_pydot.read_dot(filename1))
+G2 = nx.MultiDiGraph(nx.drawing.nx_pydot.read_dot(filename2))
 
 # networkx
 ged = nx.graph_edit_distance(G1,G2)

@@ -1,1 +1,0 @@
-Module(body=[Assign(targets=[Name(id='x', ctx=Store())], value=Str(s='abc')), Assign(targets=[Name(id='x', ctx=Store())], value=Num(n=10)), For(target=Name(id='x', ctx=Store()), iter=Call(func=Name(id='x', ctx=Load()), args=[Name(id='x', ctx=Load())], keywords=[]), body=[Expr(value=Call(func=Name(id='x', ctx=Load()), args=[Name(id='x', ctx=Load())], keywords=[]))], orelse=[])])

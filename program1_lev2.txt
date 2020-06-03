@@ -1,7 +1,0 @@
-Assign(targets=[Name(id='x', ctx=Store())], value=BinOp(left=Name(id='x', ctx=Load()), op=Add(), right=Num(n=1)))
-Compare(left=Name(id='x', ctx=Load()), ops=[Lt()], comparators=[Name(id='x', ctx=Load())])
-Expr(value=Call(func=Name(id='x', ctx=Load()), args=[Name(id='x', ctx=Load())], keywords=[]))
-Name(id='x', ctx=Store())
-Name(id='x', ctx=Store())
-Num(n=0)
-Num(n=10)

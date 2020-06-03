@@ -1,4 +1,9 @@
-file1 = open("output1.dot", "r")
+import sys
+
+filename1 = sys.argv[1]
+filename2 = sys.argv[2]
+
+file1 = open(filename1, "r")
 dotfile1 = open("pycallgraph1.dot", "w")
 
 found = 0
@@ -8,7 +13,7 @@ for line in file1:
     if(found > 0):
         dotfile1.write(line)
 
-file2 = open("output2.dot", "r")
+file2 = open(filename2, "r")
 dotfile2 = open("pycallgraph2.dot", "w")
 
 found = 0
