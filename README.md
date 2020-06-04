@@ -2,6 +2,11 @@ This project aims to search for various methods to capture similarity among prog
 
 I. Follow these steps to run our proposed implementation :
 
+Dependencies required :
+- ast api
+- astor
+- nltk
+
 Go to the directory Proposed_Work and :
 
 1) run the command : python generate_ast.py <index_number> /path/to/program1
@@ -31,6 +36,10 @@ Continued eg.
 
 II. Follow these steps to run the graph edit distance on function call graphs :
 
+Dependencies required :
+- networkx
+- pycallgraph
+
 Go to the directory Approach_Call_Graph and :
 
 1) run the command : pycallgraph -d graphviz --output-format=dot /path/to/program1 > <output1_file_name>
@@ -49,9 +58,12 @@ The above command will generate the desired graph edit distance between the two 
 
 III. Follow these steps to run the n-grams comparison experiment :
 
+Dependencies required :
+- nltk
+
 Go to the directory Approach_Ngrams and :
 
-1) run the command : python ngram.py /path/to/program1 /path/to/program2 <n>
+1) run the command : python ngram.py /path/to/program1 /path/to/program2 n
 
 Here n refers to the value of n-grams that the user wishes to generate and compare.
 On running the command, Jaccard Similarity and Cosine Similarity are given as outputs.
