@@ -11,8 +11,8 @@ The test codes in the 'Test_Codes' folder can be used. The folder 'PythonAssignm
 
 For eg.
 
-- python ast.py 1 Test_Codes/test1a.py
-- python ast.py 2 Test_Codes/test1b.py
+- python generate_ast.py 1 Test_Codes/test1a.py
+- python generate_ast.py 2 Test_Codes/test1b.py
 
 3) run the command : python winnowing.py program<index_number> program<index_number>
 
