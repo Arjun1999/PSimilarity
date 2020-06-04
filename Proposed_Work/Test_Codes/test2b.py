@@ -1,9 +1,9 @@
-a=input()
-a=int(a)
+x=input()
+x=int(x)
 
-if(a<5):
+if(x<5):
  print ("infant")
-elif(5<=a<18):
+elif(5<=x<18):
  print ("child")
-elif(a>=18):
+elif(x>=18):
  print ("adult")

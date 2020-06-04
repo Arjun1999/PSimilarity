@@ -1,4 +1,5 @@
 import os
+import sys
 import math
 import nltk
 from nltk import word_tokenize
@@ -32,32 +33,35 @@ def cosine_similarity(l1, l2):
 data1 = []
 data2 = []
 
-example_file1 = open("ex1.c")
+filename1 = sys.argv[1]
+example_file1 = open(filename1)
 data1.append(example_file1.read())
 
-example_file2 = open("ex2.c")
+filename2 = sys.argv[2]
+example_file2 = open(filename2)
 data2.append(example_file2.read())
 
+ngram_input = int(sys.argv[3])
 # cnt = Counter()
 for text in data1:
     # print (text)
     token = nltk.word_tokenize(text)
-    bigrams = ngrams(token, 2)
-    l1 = list(ngrams(token, 2))
+    bigrams = ngrams(token, ngram_input)
+    l1 = list(ngrams(token, ngram_input))
     # cnt = Counter(bigrams)
 # print (cnt)
 
 for text in data2:
     # print (text)
     token = nltk.word_tokenize(text)
-    bigrams = ngrams(token, 2)
-    l2 = list(ngrams(token, 2))
+    bigrams = ngrams(token, ngram_input)
+    l2 = list(ngrams(token, ngram_input))
 
 lst_bigrams = list(bigrams)
 
 hashes = [(hash(lst_bigrams[i]), i) for i in range(len(lst_bigrams))]
-print(lst_bigrams)
-print(hashes[0:4])
+# print(lst_bigrams)
+# print(hashes[0:4])
 
 # Both jaccard similarity and cosine similarity appear to be highest for ngram = 2 , i.e bigrams
 jsimilarity = jaccard_similarity(l1,l2)
