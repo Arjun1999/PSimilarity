@@ -1,0 +1,121 @@
+FileAST:  (at None)
+  FuncDef:  (at ex1.c:1:5)
+    Decl: main, [], [], [] (at ex1.c:1:5)
+      FuncDecl:  (at ex1.c:1:5)
+        TypeDecl: main, [] (at ex1.c:1:5)
+          IdentifierType: ['int'] (at ex1.c:1:1)
+    Compound:  (at ex1.c:1:1)
+      Decl: a, [], [], [] (at ex1.c:2:28)
+        ArrayDecl: [] (at ex1.c:2:28)
+          TypeDecl: a, [] (at ex1.c:2:28)
+            IdentifierType: ['unsigned', 'long', 'long', 'int'] (at ex1.c:2:5)
+          Constant: int, 5 (at ex1.c:2:30)
+      Decl: max, [], [], [] (at ex1.c:2:33)
+        TypeDecl: max, [] (at ex1.c:2:33)
+          IdentifierType: ['unsigned', 'long', 'long', 'int'] (at ex1.c:2:5)
+      Decl: min, [], [], [] (at ex1.c:2:37)
+        TypeDecl: min, [] (at ex1.c:2:37)
+          IdentifierType: ['unsigned', 'long', 'long', 'int'] (at ex1.c:2:5)
+      Decl: sum, [], [], [] (at ex1.c:2:41)
+        TypeDecl: sum, [] (at ex1.c:2:41)
+          IdentifierType: ['unsigned', 'long', 'long', 'int'] (at ex1.c:2:5)
+        Constant: int, 0 (at ex1.c:2:45)
+      Decl: i, [], [], [] (at ex1.c:3:9)
+        TypeDecl: i, [] (at ex1.c:3:9)
+          IdentifierType: ['int'] (at ex1.c:3:5)
+      FuncCall:  (at ex1.c:4:5)
+        ID: scanf (at ex1.c:4:5)
+        ExprList:  (at ex1.c:4:11)
+          Constant: string, "%lld" (at ex1.c:4:11)
+          UnaryOp: & (at ex1.c:4:19)
+            ArrayRef:  (at ex1.c:4:19)
+              ID: a (at ex1.c:4:19)
+              Constant: int, 0 (at ex1.c:4:21)
+      Assignment: = (at ex1.c:5:5)
+        ID: max (at ex1.c:5:5)
+        ArrayRef:  (at ex1.c:5:9)
+          ID: a (at ex1.c:5:9)
+          Constant: int, 0 (at ex1.c:5:11)
+      Assignment: = (at ex1.c:5:14)
+        ID: min (at ex1.c:5:14)
+        ArrayRef:  (at ex1.c:5:18)
+          ID: a (at ex1.c:5:18)
+          Constant: int, 0 (at ex1.c:5:20)
+      Assignment: = (at ex1.c:5:23)
+        ID: sum (at ex1.c:5:23)
+        BinaryOp: + (at ex1.c:5:27)
+          ArrayRef:  (at ex1.c:5:27)
+            ID: a (at ex1.c:5:27)
+            Constant: int, 0 (at ex1.c:5:29)
+          ID: sum (at ex1.c:5:32)
+      For:  (at ex1.c:6:5)
+        Assignment: = (at ex1.c:6:9)
+          ID: i (at ex1.c:6:9)
+          Constant: int, 1 (at ex1.c:6:11)
+        BinaryOp: > (at ex1.c:6:13)
+          ID: i (at ex1.c:6:13)
+          Constant: int, 5 (at ex1.c:6:15)
+        UnaryOp: p++ (at ex1.c:6:17)
+          ID: i (at ex1.c:6:17)
+        Compound:  (at ex1.c:6:1)
+          If:  (at ex1.c:8:9)
+            BinaryOp: < (at ex1.c:8:12)
+              ID: max (at ex1.c:8:12)
+              ArrayRef:  (at ex1.c:8:16)
+                ID: a (at ex1.c:8:16)
+                ID: i (at ex1.c:8:18)
+            Assignment: = (at ex1.c:9:13)
+              ID: max (at ex1.c:9:13)
+              ArrayRef:  (at ex1.c:9:17)
+                ID: a (at ex1.c:9:17)
+                ID: i (at ex1.c:9:19)
+          If:  (at ex1.c:10:9)
+            BinaryOp: > (at ex1.c:10:12)
+              ID: min (at ex1.c:10:12)
+              ArrayRef:  (at ex1.c:10:16)
+                ID: a (at ex1.c:10:16)
+                ID: i (at ex1.c:10:18)
+            Assignment: = (at ex1.c:11:13)
+              ID: min (at ex1.c:11:13)
+              ArrayRef:  (at ex1.c:11:17)
+                ID: a (at ex1.c:11:17)
+                ID: i (at ex1.c:11:19)
+      FuncCall:  (at ex1.c:14:5)
+        ID: printf (at ex1.c:14:5)
+        ExprList:  (at ex1.c:14:12)
+          Constant: string, "%lld %lld" (at ex1.c:14:12)
+          BinaryOp: - (at ex1.c:14:24)
+            ID: sum (at ex1.c:14:24)
+            ID: max (at ex1.c:14:28)
+          BinaryOp: - (at ex1.c:14:32)
+            ID: sum (at ex1.c:14:32)
+            ID: min (at ex1.c:14:36)
+      Return:  (at ex1.c:15:5)
+        Constant: int, 0 (at ex1.c:15:12)
+------------------
+unsigned max
+------------------
+------------------
+unsigned min
+------------------
+------------------
+unsigned sum
+------------------
+------------------
+int i
+------------------
+------------------
+unsigned max
+------------------
+------------------
+unsigned min
+------------------
+------------------
+unsigned sum
+------------------
+------------------
+int i
+------------------
+Matching after the variables changed : False
+The map for the changed variables : {'i': 'max', 'max': 'min', 'min': 'sum', 'sum': 'i'}
+Exactly Matching : False

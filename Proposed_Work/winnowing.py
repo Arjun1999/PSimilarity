@@ -9,7 +9,7 @@ def cosine_similarity(l1, l2):
 
     vec1 = Counter(l1)
     vec2 = Counter(l2)
-
+    
     # print("Vec 1 : ", vec1)
     # print("Vec 2: ", vec2)
 

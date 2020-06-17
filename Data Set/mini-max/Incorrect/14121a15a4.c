@@ -1,0 +1,27 @@
+#include <math.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <assert.h>
+#include <limits.h>
+#include <stdbool.h>
+
+int main() {
+    int *arr = malloc(sizeof(int) * 5);
+    long int temp[5],sum=0;
+    
+    for(int arr_i = 0; arr_i < 5; arr_i++){
+       scanf("%d",&arr[arr_i]);
+    }
+    for(int arr_i = 0; arr_i < 5; arr_i++){
+        sum+=arr[arr_i];
+    }
+    for(i=1;i<=5;i++){
+    for(int arr_i = 1; arr_i <=5; arr_i++){
+        if(i==arr_i)
+            temp[i]=sum-arr[i];
+    }
+        printf("ldld",temp[1],temp[5]);
+        
+    return 0;
+}

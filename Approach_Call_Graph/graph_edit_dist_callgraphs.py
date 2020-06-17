@@ -11,6 +11,7 @@ G2 = nx.MultiDiGraph(nx.drawing.nx_pydot.read_dot(filename2))
 
 # networkx
 ged = nx.graph_edit_distance(G1,G2)
+print("Computing Graph Edit Distance ...")
 print("Graph Edit Distance from Networkx : ", ged)
 
 # gmatch4py

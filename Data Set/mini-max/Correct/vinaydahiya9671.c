@@ -1,0 +1,32 @@
+#include <math.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <assert.h>
+#include <limits.h>
+#include <stdbool.h>
+
+int main() {
+    int *arr = malloc(sizeof(int) * 5);
+    for(int arr_i = 0; arr_i < 5; arr_i++){
+       scanf("%d",&arr[arr_i]);
+    }
+    long int min,max,temp; min=9999999999;max=0;
+    int i=0,j;
+    while(i<5)
+      {
+        j=0; 
+        temp=0;
+        while(j<5)
+       {   if(j!=i)           temp+=arr[j];
+          
+           j++;
+        }
+           if(temp>max)       max=temp;
+           if(temp<min)       min=temp;
+           
+           i++;
+      }
+    printf("%ld %ld",min,max);
+      return 0;
+}

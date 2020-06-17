@@ -1,0 +1,12 @@
+#include<stdio.h>
+int main()
+{
+	int arr[1000],t,i,sum=0;
+	scanf("%d",&t);
+	for(i=0;i<t;i++)
+	{
+		scanf("%d",&arr[i]);
+		sum=sum+arr[i];
+	}
+	printf("%d",sum);
+}

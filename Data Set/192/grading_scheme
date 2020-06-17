@@ -1,0 +1,27 @@
+Grading Key
+===========
+
+A. Let's Watch Football
+-----------------------
+Approach 1 - Closed form solution - 3 marks
+Approach 2 - Binary search - 2 marks
+Approach 3 - Linear search - 1 mark
+
+Test cases - > 75 % - 2 mark
+Test cases - 50 % to 75 % - 1 mark
+Test cases - < 50 % - 0 marks
+
+Grader to use discretion to decide if approach 1 was taken with sufficient clarity.
+
+
+
+B. Diplomas and Certificates
+----------------------------
+Approach 1 - Closed form solution - 3 marks
+Approach 2 - Simple arithmetic expression - 2.5 marks
+Approach 3 - Arithmetic expression with condition checking - 1.5 marks
+
+Test cases - > 80 % - 2 mark
+Test cases - 60 to 80 - 1.5 mark
+Test cases - 45 to 60 - 1 mark
+Test cases - < 50 - 0marks

@@ -1,0 +1,2 @@
+#include <stdio.h>
+int main(int argc,char *argv[]){int N;scanf("%d",&N);int array[N];int i;for(i=0;i<N;i++){scanf("%d",&array[i]);} int sum=0; for(i=0;i<N;i++){sum+=array[i];} printf("%d",sum); return 0;}

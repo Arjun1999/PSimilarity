@@ -1,0 +1,30 @@
+#include<stdio.h>
+main()
+    {
+   long int a[1000],i,swap,j,max=0,min=0;
+    for(i=0;i<5;i++)
+        {
+        scanf("%ld",&a[i]);
+}
+    for(i=0;i<4;i++)
+        {
+        for(j=0;j<4-i;j++)
+            {
+            if(a[j]>a[j+1])
+                {
+                swap=a[j];
+                a[j]=a[j+1];
+                a[j+1]=swap;
+            }
+           }
+    }
+    for(i=1;i<5;i++)
+        {
+        max=max+a[i];
+    }
+    for(i=0;i<4;i++)
+        {
+        min=min+a[i];
+    }
+    printf("%ld %ld",min,max);
+}

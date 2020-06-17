@@ -1,4 +1,4 @@
-This project aims to search for various methods to capture similarity among programs. 
+This project aims to search for various methods to capture similarity among programs+. 
 
 I. Follow these steps to run our proposed implementation :
 

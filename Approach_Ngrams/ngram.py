@@ -18,6 +18,8 @@ def cosine_similarity(l1, l2):
     vec1 = Counter(l1)
     vec2 = Counter(l2)
 
+    # print("\nVec1 : \n", vec1)
+    # print("\nVec2 : \n", vec2)
     intersection = set(vec1.keys()) & set(vec2.keys())
     numerator = sum([vec1[x] * vec2[x] for x in intersection])
 
@@ -46,7 +48,7 @@ ngram_input = int(sys.argv[3])
 for text in data1:
     # print (text)
     token = nltk.word_tokenize(text)
-    bigrams = ngrams(token, ngram_input)
+    # bigrams = ngrams(token, ngram_input)
     l1 = list(ngrams(token, ngram_input))
     # cnt = Counter(bigrams)
 # print (cnt)
@@ -54,12 +56,12 @@ for text in data1:
 for text in data2:
     # print (text)
     token = nltk.word_tokenize(text)
-    bigrams = ngrams(token, ngram_input)
+    # bigrams = ngrams(token, ngram_input)
     l2 = list(ngrams(token, ngram_input))
 
-lst_bigrams = list(bigrams)
+# lst_bigrams = list(bigrams)
 
-hashes = [(hash(lst_bigrams[i]), i) for i in range(len(lst_bigrams))]
+# hashes = [(hash(lst_bigrams[i]), i) for i in range(len(lst_bigrams))]
 # print(lst_bigrams)
 # print(hashes[0:4])
 
