@@ -1,0 +1,11 @@
+digraph G{
+Node1[shape=record label="{1: ENTRY\ }"];
+Node2[shape=record label="{2: Function\ int\ sum(int\ n)}"];
+Node4[shape=record label="{4: If\ n\ ==\ 1}"];
+Node6[shape=record label="{6: return\ 1;}"];
+Node7[shape=record label="{7: return\ n\ +\ sum(n\ -\ 1);}"];
+Node1->Node2;
+Node2->Node4;
+Node4->Node6;
+Node4->Node7;
+}

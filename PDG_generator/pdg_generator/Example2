@@ -1,0 +1,71 @@
+digraph G{
+"{1: ENTRY\ }"
+"{2: Function\ int\ main()}"
+"{4: Decl\ unsigned\ long\ long\ int\ a[5]}"
+"{5: Decl\ unsigned\ long\ long\ int\ max}"
+"{6: Decl\ unsigned\ long\ long\ int\ min}"
+"{7: Decl\ unsigned\ long\ long\ int\ sum\ =\ 0}"
+"{8: Decl\ int\ i}"
+"{9: scanf(\"%lld\",\ &a[0])}"
+"{10: Assign\ max\ =\ a[0]}"
+"{11: Assign\ min\ =\ a[0]}"
+"{12: Assign\ sum\ =\ a[0]\ +\ sum}"
+"{13: Assign\ i\ =\ 1}"
+"{14: For\ i\ \<\ 5}"
+"{17: scanf(\"%lld\",\ &a[i])}"
+"{18: If\ max\ \<\ a[i]}"
+"{20: Assign\ max\ =\ a[i]}"
+"{21: If\ min\ \>\ a[i]}"
+"{23: Assign\ min\ =\ a[i]}"
+"{24: Assign\ sum\ =\ sum\ +\ a[i]}"
+"{25: printf(\"%lld\ %lld\",\ sum\ -\ max,\ sum\ -\ min)}"
+"{26: return\ 0;}"
+"{1: ENTRY\ }"->"{2: Function\ int\ main()}"
+"{2: Function\ int\ main()}"->"{4: Decl\ unsigned\ long\ long\ int\ a[5]}"
+"{2: Function\ int\ main()}"->"{5: Decl\ unsigned\ long\ long\ int\ max}"
+"{2: Function\ int\ main()}"->"{6: Decl\ unsigned\ long\ long\ int\ min}"
+"{2: Function\ int\ main()}"->"{7: Decl\ unsigned\ long\ long\ int\ sum\ =\ 0}"
+"{2: Function\ int\ main()}"->"{8: Decl\ int\ i}"
+"{2: Function\ int\ main()}"->"{9: scanf(\"%lld\",\ &a[0])}"
+"{2: Function\ int\ main()}"->"{10: Assign\ max\ =\ a[0]}"
+"{2: Function\ int\ main()}"->"{11: Assign\ min\ =\ a[0]}"
+"{2: Function\ int\ main()}"->"{12: Assign\ sum\ =\ a[0]\ +\ sum}"
+"{2: Function\ int\ main()}"->"{13: Assign\ i\ =\ 1}"
+"{2: Function\ int\ main()}"->"{14: For\ i\ \<\ 5}"
+"{2: Function\ int\ main()}"->"{25: printf(\"%lld\ %lld\",\ sum\ -\ max,\ sum\ -\ min)}"
+"{2: Function\ int\ main()}"->"{26: return\ 0;}"
+"{14: For\ i\ \<\ 5}"->"{17: scanf(\"%lld\",\ &a[i])}"
+"{14: For\ i\ \<\ 5}"->"{18: If\ max\ \<\ a[i]}"
+"{14: For\ i\ \<\ 5}"->"{21: If\ min\ \>\ a[i]}"
+"{14: For\ i\ \<\ 5}"->"{24: Assign\ sum\ =\ sum\ +\ a[i]}"
+"{18: If\ max\ \<\ a[i]}"->"{20: Assign\ max\ =\ a[i]}"
+"{21: If\ min\ \>\ a[i]}"->"{23: Assign\ min\ =\ a[i]}"
+"{7: Decl\ unsigned\ long\ long\ int\ sum\ =\ 0}"->"{12: Assign\ sum\ =\ a[0]\ +\ sum}" [style = dotted]
+"{9: scanf(\"%lld\",\ &a[0])}"->"{10: Assign\ max\ =\ a[0]}" [style = dotted]
+"{9: scanf(\"%lld\",\ &a[0])}"->"{11: Assign\ min\ =\ a[0]}" [style = dotted]
+"{9: scanf(\"%lld\",\ &a[0])}"->"{12: Assign\ sum\ =\ a[0]\ +\ sum}" [style = dotted]
+"{10: Assign\ max\ =\ a[0]}"->"{18: If\ max\ \<\ a[i]}" [style = dotted]
+"{10: Assign\ max\ =\ a[0]}"->"{25: printf(\"%lld\ %lld\",\ sum\ -\ max,\ sum\ -\ min)}" [style = dotted]
+"{11: Assign\ min\ =\ a[0]}"->"{21: If\ min\ \>\ a[i]}" [style = dotted]
+"{11: Assign\ min\ =\ a[0]}"->"{25: printf(\"%lld\ %lld\",\ sum\ -\ max,\ sum\ -\ min)}" [style = dotted]
+"{12: Assign\ sum\ =\ a[0]\ +\ sum}"->"{24: Assign\ sum\ =\ sum\ +\ a[i]}" [style = dotted]
+"{12: Assign\ sum\ =\ a[0]\ +\ sum}"->"{25: printf(\"%lld\ %lld\",\ sum\ -\ max,\ sum\ -\ min)}" [style = dotted]
+"{13: Assign\ i\ =\ 1}"->"{14: For\ i\ \<\ 5}" [style = dotted]
+"{17: scanf(\"%lld\",\ &a[i])}"->"{14: For\ i\ \<\ 5}" [style = dotted]
+"{17: scanf(\"%lld\",\ &a[i])}"->"{18: If\ max\ \<\ a[i]}" [style = dotted]
+"{17: scanf(\"%lld\",\ &a[i])}"->"{18: If\ max\ \<\ a[i]}" [style = dotted]
+"{17: scanf(\"%lld\",\ &a[i])}"->"{20: Assign\ max\ =\ a[i]}" [style = dotted]
+"{17: scanf(\"%lld\",\ &a[i])}"->"{20: Assign\ max\ =\ a[i]}" [style = dotted]
+"{17: scanf(\"%lld\",\ &a[i])}"->"{21: If\ min\ \>\ a[i]}" [style = dotted]
+"{17: scanf(\"%lld\",\ &a[i])}"->"{21: If\ min\ \>\ a[i]}" [style = dotted]
+"{17: scanf(\"%lld\",\ &a[i])}"->"{23: Assign\ min\ =\ a[i]}" [style = dotted]
+"{17: scanf(\"%lld\",\ &a[i])}"->"{23: Assign\ min\ =\ a[i]}" [style = dotted]
+"{17: scanf(\"%lld\",\ &a[i])}"->"{24: Assign\ sum\ =\ sum\ +\ a[i]}" [style = dotted]
+"{17: scanf(\"%lld\",\ &a[i])}"->"{24: Assign\ sum\ =\ sum\ +\ a[i]}" [style = dotted]
+"{20: Assign\ max\ =\ a[i]}"->"{18: If\ max\ \<\ a[i]}" [style = dotted]
+"{20: Assign\ max\ =\ a[i]}"->"{25: printf(\"%lld\ %lld\",\ sum\ -\ max,\ sum\ -\ min)}" [style = dotted]
+"{23: Assign\ min\ =\ a[i]}"->"{21: If\ min\ \>\ a[i]}" [style = dotted]
+"{23: Assign\ min\ =\ a[i]}"->"{25: printf(\"%lld\ %lld\",\ sum\ -\ max,\ sum\ -\ min)}" [style = dotted]
+"{24: Assign\ sum\ =\ sum\ +\ a[i]}"->"{24: Assign\ sum\ =\ sum\ +\ a[i]}" [style = dotted]
+"{24: Assign\ sum\ =\ sum\ +\ a[i]}"->"{25: printf(\"%lld\ %lld\",\ sum\ -\ max,\ sum\ -\ min)}" [style = dotted]
+}

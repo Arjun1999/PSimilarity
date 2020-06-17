@@ -1,0 +1,9 @@
+ENTRY\ 
+Function\ int\ sum(int\ n)
+If\ n\ ==\ 1
+return\ 1;
+return\ n\ +\ sum(n\ -\ 1);
+ENTRY\ ->Function\ int\ sum(int\ n)
+Function\ int\ sum(int\ n)->If\ n\ ==\ 1
+If\ n\ ==\ 1->return\ 1;
+If\ n\ ==\ 1->return\ n\ +\ sum(n\ -\ 1);
