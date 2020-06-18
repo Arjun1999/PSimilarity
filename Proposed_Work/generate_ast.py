@@ -1,5 +1,6 @@
 import ast
 import sys
+import pickle
 from astor import to_source
 
 # To modify the nodes(change identifier names) as we traverse the AST
@@ -72,3 +73,62 @@ for i in range(len(level2)):
 # print("LEVEL0 = ", level0)
 # print("LEVEL1 = ", level1)
 # print("LEVEL2 = ", level2)
+
+def get_children(node):
+    parent = ast.dump(node)
+    children = []
+    for child_node in ast.iter_child_nodes(node):
+        children.append(ast.dump(child_node))
+    return parent, children
+
+parents1 = []
+parents2 = []
+children1 = []
+children2 = []
+
+def get_parent_children_relation(root, level=0):
+    for field, value in ast.iter_fields(root):
+        if isinstance(value, list):
+            for item in value:
+                if isinstance(item, ast.AST):
+                    p, c = get_children(item)
+                    if level == 0:
+                        parents1.append(p)
+                        children1.append(c)
+                    elif level == 1:
+                        parents2.append(p)
+                        children2.append(c)       
+                    get_parent_children_relation(item, level=level+1)
+        elif isinstance(value, ast.AST):
+            p, c = get_children(value)
+            if level == 0:
+                parents1.append(p)
+                children1.append(c)
+            elif level == 1:
+                parents2.append(p)
+                children2.append(c) 
+            get_parent_children_relation(value, level=level+1)
+
+get_parent_children_relation(input_tree)
+
+pc_1 = list(zip(parents1, children1))
+pc_2 = list(zip(parents2, children2))
+pc_1.sort
+pc_2.sort
+
+output_file_lev1_pc = open((filename_prognum+"_lev1_pc.pickle"), "wb")
+pickle.dump(pc_1, output_file_lev1_pc)
+
+output_file_lev2_pc = open((filename_prognum+"_lev2_pc.pickle"), "wb")
+
+pickle.dump(pc_2, output_file_lev2_pc)
+
+# print("-----------------------------LEVEL1 -> LEVEL2-----------------------------------------------------")
+# for i in range(len(parents1)):
+#     print("Parent = ", parents1[i], "\nChildren = ", children1[i])
+#     print("\n")
+# print("------------------------------LEVEL2 -> LEVEL3----------------------------------------------------")
+# for i in range(len(parents2)):
+#     print("Parent = ", parents2[i], "\nChildren = ", children2[i])
+#     print("\n")
+# print("-------------------------------------------------------------------------------------------")
