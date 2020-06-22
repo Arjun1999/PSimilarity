@@ -10,6 +10,8 @@ pc_1 = pickle.load(output_file_lev1_pc)
 output_file_lev2_pc = open((filename_prognum+"_lev2_pc.pickle"), "rb")
 pc_2 = pickle.load(output_file_lev2_pc)
 
-print(pc_1)
+# for ele in pc_1:
+#     print(ele, "\n")
 
-print(pc_2)
+for ele in pc_2:
+    print(ele, "\n")

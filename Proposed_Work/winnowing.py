@@ -1,6 +1,7 @@
 import nltk
 import sys
 import math
+import pickle
 from nltk import word_tokenize
 from nltk.util import ngrams
 from collections import Counter
@@ -88,7 +89,6 @@ def preprocess(document):
     for item in document :
         item = item.lower()
         preprocessed_document.append(item) 
-    # print(preprocessed_document)
     return preprocessed_document
 
 def generate_fingerprints(file_name, k, t) :
@@ -100,11 +100,48 @@ def generate_fingerprints(file_name, k, t) :
     kgrams = generate_kgrams(preprocessed_data, k)
     document_fingerprints = winnowing(kgrams, k, t)
     return document_fingerprints
-    # print("Document Fingerprints: ", document_fingerprints)
-    
 
-# fingerprints1 = generate_fingerprints("python_ex1.py", 2, 4)
-# fingerprints2 = generate_fingerprints("python_ex2.py", 2, 4)
+# def prep(doc):
+#     prep_doc = []
+#     for ele in doc:
+#         ele_list = []
+#         for item in ele:
+#             item = item.lower()
+#             ele_list.append(item)
+#         prep_doc.append(ele_list)
+#     return prep_doc
+
+# def convert(doc):
+#     conv_doc = []
+#     for ele in doc:
+#         temp = []
+#         for item in ele[1]:
+#             temp.append(ele[0])
+#             temp.append(item)
+#         conv_doc.append(temp)
+#     return conv_doc
+
+# def gen_fp(data, k, t):
+#     conv_data = convert(data)
+#     prep_data = prep(conv_data)
+#     kgrams = generate_kgrams(prep_data, k)
+#     doc_fp = winnowing(kgrams, k, t)
+#     return doc_fp
+
+# p1l1 = pickle.load(open("program1_lev1_pc.pickle", "rb"))
+# p1l2 = pickle.load(open("program1_lev2_pc.pickle", "rb"))
+# p2l1 = pickle.load(open("program2_lev1_pc.pickle", "rb"))
+# p2l2 = pickle.load(open("program2_lev2_pc.pickle", "rb"))
+
+# fp11 = gen_fp(p1l1, 13, 17)
+# fp12 = gen_fp(p1l2, 13, 17)
+# fp21 = gen_fp(p2l1, 13, 17)
+# fp22 = gen_fp(p2l2, 13, 17)
+
+# cs1 = cosine_similarity(fp11, fp21)
+# cs2 = cosine_similarity(fp12, fp22)
+# tot = (0.6 * cs1) + (0.4 * cs2)
+# print("Total: " + str(tot))
 
 program1 = sys.argv[1]
 program2 = sys.argv[2]
@@ -117,9 +154,6 @@ fingerprints2_1 = generate_fingerprints((program2+"_lev1.txt"), 13, 17)
 
 fingerprints1_2 = generate_fingerprints((program1+"_lev2.txt"), 13, 17)
 fingerprints2_2 = generate_fingerprints((program2+"_lev2.txt"), 13, 17)
-
-# print("Fingerprints for File1 : \n", fingerprints1)
-# print("\n\nFingerprints for File2 : \n", fingerprints2)
 
 cosine_similarity_lev0 = cosine_similarity(fingerprints1_0, fingerprints2_0)
 cosine_similarity_lev1 = cosine_similarity(fingerprints1_1, fingerprints2_1)

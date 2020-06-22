@@ -34,7 +34,7 @@ def ast_print(node, level=0):
     elif level==2:
         level2.append(ast.dump(node))
 
-    for field, value in ast.iter_fields(node):
+    for _, value in ast.iter_fields(node):
         if isinstance(value, list):
             for item in value:
                 if isinstance(item, ast.AST):
@@ -55,20 +55,20 @@ program_number1 = sys.argv[1]
 filename_prognum = "program"+program_number1
 
 
-output_file_lev0 = open((filename_prognum+"_lev0.txt"), "w")
-for i in range(len(level0)):
-    output_file_lev0.write(level0[i])
-    output_file_lev0.write('\n')
+# output_file_lev0 = open((filename_prognum+"_lev0.txt"), "w")
+# for i in range(len(level0)):
+#     output_file_lev0.write(level0[i])
+#     output_file_lev0.write('\n')
 
-output_file_lev1 = open((filename_prognum+"_lev1.txt"), "w")
-for i in range(len(level1)):
-    output_file_lev1.write(level1[i])
-    output_file_lev1.write('\n')
+# output_file_lev1 = open((filename_prognum+"_lev1.txt"), "w")
+# for i in range(len(level1)):
+#     output_file_lev1.write(level1[i])
+#     output_file_lev1.write('\n')
 
-output_file_lev2 = open((filename_prognum+"_lev2.txt"), "w")
-for i in range(len(level2)):
-    output_file_lev2.write(level2[i])
-    output_file_lev2.write('\n')
+# output_file_lev2 = open((filename_prognum+"_lev2.txt"), "w")
+# for i in range(len(level2)):
+#     output_file_lev2.write(level2[i])
+#     output_file_lev2.write('\n')
 
 # print("LEVEL0 = ", level0)
 # print("LEVEL1 = ", level1)
@@ -87,7 +87,7 @@ children1 = []
 children2 = []
 
 def get_parent_children_relation(root, level=0):
-    for field, value in ast.iter_fields(root):
+    for _, value in ast.iter_fields(root):
         if isinstance(value, list):
             for item in value:
                 if isinstance(item, ast.AST):
@@ -106,7 +106,7 @@ def get_parent_children_relation(root, level=0):
                 children1.append(c)
             elif level == 1:
                 parents2.append(p)
-                children2.append(c) 
+                children2.append(c)
             get_parent_children_relation(value, level=level+1)
 
 get_parent_children_relation(input_tree)
@@ -116,12 +116,26 @@ pc_2 = list(zip(parents2, children2))
 pc_1.sort
 pc_2.sort
 
-output_file_lev1_pc = open((filename_prognum+"_lev1_pc.pickle"), "wb")
-pickle.dump(pc_1, output_file_lev1_pc)
+output_file_lev0 = open((filename_prognum+"_lev0.txt"), "w")
+for ele in level0:
+    output_file_lev0.write(ele)
+    output_file_lev0.write('\n')
 
-output_file_lev2_pc = open((filename_prognum+"_lev2_pc.pickle"), "wb")
+output_file_lev1 = open((filename_prognum+"_lev1.txt"), "w")
+output_file_lev2 = open((filename_prognum+"_lev2.txt"), "w")
+for ele in pc_1:
+    output_file_lev1.write(ele[0])
+    output_file_lev1.write('\n')
+    for item in ele[1]:
+        output_file_lev2.write(item)
+        output_file_lev2.write('\n')
 
-pickle.dump(pc_2, output_file_lev2_pc)
+# output_file_lev1_pc = open((filename_prognum+"_lev1_pc.pickle"), "wb")
+# pickle.dump(pc_1, output_file_lev1_pc)
+
+# output_file_lev2_pc = open((filename_prognum+"_lev2_pc.pickle"), "wb")
+
+# pickle.dump(pc_2, output_file_lev2_pc)
 
 # print("-----------------------------LEVEL1 -> LEVEL2-----------------------------------------------------")
 # for i in range(len(parents1)):
