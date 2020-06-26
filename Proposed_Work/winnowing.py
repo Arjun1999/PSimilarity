@@ -4,17 +4,37 @@ import math
 import pickle
 from nltk import word_tokenize
 from nltk.util import ngrams
+from nltk import cluster
 from collections import Counter
+from statistics import mean
+# def buildVector(iterable1, iterable2):
+#     counter1 = Counter(iterable1)
+#     counter2= Counter(iterable2)
+#     all_items = set(counter1.keys()).union( set(counter2.keys()) )
+#     vector1 = [counter1[k] for k in all_items]
+#     vector2 = [counter2[k] for k in all_items]
+#     return vector1, vector2
 
 def cosine_similarity(l1, l2):
 
     vec1 = Counter(l1)
     vec2 = Counter(l2)
     
+    # print(len(vec1))
+    # print(len(vec2))  
+    
     # print("Vec 1 : ", vec1)
     # print("Vec 2: ", vec2)
 
     intersection = set(vec1.keys()) & set(vec2.keys())
+    
+    # print(intersection)
+    
+    # for x in intersection:
+    #     if(vec1[x] > 10):
+    #         print(vec1[x].key())
+    #         print(vec2[x].key())
+    
     numerator = sum([vec1[x] * vec2[x] for x in intersection])
 
     sum1 = sum([vec1[x]**2 for x in vec1.keys()])
@@ -52,7 +72,7 @@ def winnowing(kgrams, k, t):
     
     # print(kgrams)
     hash_table = [ (hash(kgrams[i]) , i)  for i in range(len(kgrams)) ]
-    # print(hash_table)
+    # print(len(hash_table))
     
     window_length = t - k + 1
     window_begin = 0
@@ -98,6 +118,7 @@ def generate_fingerprints(file_name, k, t) :
     
     preprocessed_data = preprocess(data)
     kgrams = generate_kgrams(preprocessed_data, k)
+    # print(len(kgrams))
     document_fingerprints = winnowing(kgrams, k, t)
     return document_fingerprints
 
@@ -146,24 +167,50 @@ def generate_fingerprints(file_name, k, t) :
 program1 = sys.argv[1]
 program2 = sys.argv[2]
 
-fingerprints1_0 = generate_fingerprints((program1+"_lev0.txt"), 13, 17)
-fingerprints2_0 = generate_fingerprints((program2+"_lev0.txt"), 13, 17)
+lev0s = []
+lev1s = []
+lev2s = []
 
-fingerprints1_1 = generate_fingerprints((program1+"_lev1.txt"), 13, 17)
-fingerprints2_1 = generate_fingerprints((program2+"_lev1.txt"), 13, 17)
+for i in range(10):
+    fingerprints1_0 = generate_fingerprints((program1+"_lev0.txt"), 13, 17)
+    fingerprints2_0 = generate_fingerprints((program2+"_lev0.txt"), 13, 17)
+    cosine_similarity_lev0 = cosine_similarity(fingerprints1_0, fingerprints2_0)
+    lev0s.append(cosine_similarity_lev0)
 
-fingerprints1_2 = generate_fingerprints((program1+"_lev2.txt"), 13, 17)
-fingerprints2_2 = generate_fingerprints((program2+"_lev2.txt"), 13, 17)
+    fingerprints1_1 = generate_fingerprints((program1+"_lev1.txt"), 13, 17)
+    fingerprints2_1 = generate_fingerprints((program2+"_lev1.txt"), 13, 17)
+    cosine_similarity_lev1 = cosine_similarity(fingerprints1_1, fingerprints2_1)
+    lev1s.append(cosine_similarity_lev1)
 
-cosine_similarity_lev0 = cosine_similarity(fingerprints1_0, fingerprints2_0)
-cosine_similarity_lev1 = cosine_similarity(fingerprints1_1, fingerprints2_1)
-cosine_similarity_lev2 = cosine_similarity(fingerprints1_2, fingerprints2_2)
+    fingerprints1_2 = generate_fingerprints((program1+"_lev2.txt"), 13, 17)
+    fingerprints2_2 = generate_fingerprints((program2+"_lev2.txt"), 13, 17)
+    cosine_similarity_lev2 = cosine_similarity(fingerprints1_2, fingerprints2_2)
+    lev2s.append(cosine_similarity_lev2)
+# print(len(fingerprints1_0))
+# print(len(fingerprints2_0))
 
-print("Cosine similarity Level 0 : \n", cosine_similarity_lev0)
-print("Cosine similarity Level 1 : \n", cosine_similarity_lev1)
-print("Cosine similarity Level 2 : \n", cosine_similarity_lev2)
+# print(len(fingerprints1_1))
+# print(len(fingerprints2_1))
 
-total_similarity_score = ((0.5*cosine_similarity_lev0) + (0.3*cosine_similarity_lev1) + (0.2*cosine_similarity_lev2))
-print("Total similarity score : \n", total_similarity_score)
+# print(len(fingerprints1_2))
+# print(len(fingerprints2_2))
+
+final_cosine_similarity_lev0 = round(mean(lev0s), 2)
+final_cosine_similarity_lev1 = round(mean(lev1s), 2)
+final_cosine_similarity_lev2 = round(mean(lev2s), 2)
+# f10,f20 = buildVector(fingerprints1_0, fingerprints2_0)
+# f11,f21 = buildVector(fingerprints1_1, fingerprints2_1)
+# f12,f22 = buildVector(fingerprints1_2, fingerprints2_2)
+
+# print("Cosine similarity Level 0 : \n", cluster.util.cosine_distance(f10,f20))
+# print("Cosine similarity Level 1 : \n", cluster.util.cosine_distance(f11,f21))
+# print("Cosine similarity Level 2 : \n", cluster.util.cosine_distance(f12,f22))
+
+print("Cosine similarity Level 0 : \n", final_cosine_similarity_lev0)
+print("Cosine similarity Level 1 : \n", final_cosine_similarity_lev1)
+print("Cosine similarity Level 2 : \n", final_cosine_similarity_lev2)
+
+total_similarity_score = ((0.5*final_cosine_similarity_lev0) + (0.3*final_cosine_similarity_lev1) + (0.2*final_cosine_similarity_lev2))
+print("Total similarity score : \n", round(total_similarity_score, 2))
 # Cosine similarity seems to be highest for k = 11 and t = 15, should try others.
 

@@ -1,16 +1,17 @@
+digraph G{
 ENTRY\ 
-Function\ int\ func(int\ n)
-Decl\ int\ s\ =\ 0
-Decl\ int\ i\ =\ 0
-While\ i\ \<\ n
-Assign\ s\ +=\ i
-return\ s;
-ENTRY\ ->Function\ int\ func(int\ n)
-Function\ int\ func(int\ n)->Decl\ int\ s\ =\ 0
-Function\ int\ func(int\ n)->Decl\ int\ i\ =\ 0
-Function\ int\ func(int\ n)->While\ i\ \<\ n
-Function\ int\ func(int\ n)->return\ s;
-While\ i\ \<\ n->Assign\ s\ +=\ i
-Decl\ int\ i\ =\ 0->While\ i\ \<\ n[style = dotted]
-Decl\ int\ i\ =\ 0->Assign\ s\ +=\ i[style = dotted]
-
+Function\ int\ x(int\ x)
+Decl\ int\ x\ =\ 0
+Decl\ int\ x\ =\ 0
+While\ x\ \<\ x
+Assign\ x\ +=\ x
+return\ x;
+ENTRY\ control Function\ int\ x(int\ x)
+Function\ int\ x(int\ x) control Decl\ int\ x\ =\ 0
+Function\ int\ x(int\ x) control Decl\ int\ x\ =\ 0
+Function\ int\ x(int\ x) control While\ x\ \<\ x
+Function\ int\ x(int\ x) control return\ x;
+While\ x\ \<\ x control Assign\ x\ +=\ x
+Decl\ int\ x\ =\ 0 data While\ x\ \<\ x[style = dotted]
+Decl\ int\ x\ =\ 0 data Assign\ x\ +=\ x[style = dotted]
+}

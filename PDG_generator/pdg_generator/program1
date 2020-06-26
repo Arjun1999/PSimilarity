@@ -1,16 +1,17 @@
+digraph G{
 ENTRY\ 
-Function\ int\ sum(int\ limit)
-Decl\ int\ sum\ =\ 0
-Decl\ int\ k\ =\ 1
-While\ k\ \<=\ limit
-Assign\ sum\ +=\ k
-return\ sum;
-ENTRY\ ->Function\ int\ sum(int\ limit)
-Function\ int\ sum(int\ limit)}->Decl\ int\ sum\ =\ 0
-Function\ int\ sum(int\ limit)}->Decl\ int\ k\ =\ 1
-Function\ int\ sum(int\ limit)}->While\ k\ \<=\ limit
-Function\ int\ sum(int\ limit)}->return\ sum;
-While\ k\ \<=\ limit}->Assign\ sum\ +=\ k
-Decl\ int\ k\ =\ 1->While\ k\ \<=\ limit [style = dotted]
-Decl\ int\ k\ =\ 1->Assign\ sum\ +=\ k [style = dotted]
-
+Function\ int\ x(int\ x)
+Decl\ int\ x\ =\ 0
+Decl\ int\ x\ =\ 1
+While\ x\ \<=\ x
+Assign\ x\ +=\ x
+return\ x;
+ENTRY\ control Function\ int\ x(int\ x)
+Function\ int\ x(int\ x)} control Decl\ int\ x\ =\ 0
+Function\ int\ x(int\ x)} control Decl\ int\ x\ =\ 1
+Function\ int\ x(int\ x)} control While\ x\ \<=\ x
+Function\ int\ x(int\ x)} control return\ x;
+While\ x\ \<=\ x} control Assign\ x\ +=\ x
+Decl\ int\ x\ =\ 1 data While\ x\ \<=\ x [style = dotted]
+Decl\ int\ x\ =\ 1 data Assign\ x\ +=\ x [style = dotted]
+}
