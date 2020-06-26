@@ -50,9 +50,9 @@ The above 2 commands will generate the <output_files> containing the actual outp
 
 3) run the command : python scriptcallgraph.py <output1_file_name> <output2_file_name>
 
-The above mentioned command will extract the "dot" representation of the function call graphs of the given pair of programs and store it in two distinct named files, "pycallgraph1.dot" and "pycallgraph2.dot".  
+The above mentioned command will extract the "dot" representation of the function call graphs of the given pair of programs and store it in two distinct named files, "pycallgraph1" and "pycallgraph2".  
 
-4) run the command : python graph_edit_dist_callgraphs.py pycallgraph1.dot pycallgraph2.dot
+4) run the command : python graph_edit_dist_callgraphs.py pycallgraph1 pycallgraph2
 
 The above command will generate the desired graph edit distance between the two function call graphs.
 

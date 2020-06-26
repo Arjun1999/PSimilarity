@@ -11,7 +11,7 @@ digraph G {
 
     // Nodes
     "__main__" [color = "#9999e5ff", label = "__main__\ncalls: 1\ntime: 0.000000s"];
-    "<module>" [color = "#e50000ff", label = "<module>\ncalls: 1\ntime: 0.000008s"];
+    "<module>" [color = "#e50000ff", label = "<module>\ncalls: 1\ntime: 38.303861s"];
 
     // Edges
     "__main__" -> "<module>" [color = "#b20000ff", label = "1"];
