@@ -11,6 +11,13 @@ class MyNodeTransformer(ast.NodeTransformer):
             return ast.copy_location(result, node)
         return node
 
+def CountLoops(tree):
+    loop_count = 0
+    for node in ast.walk(tree):
+        if(isinstance(node, (ast.For, ast.While))):
+            loop_count += 1
+    return loop_count
+
 # To perform the above defined modification on the source code of our choice
 def mutate(filename):
     file = open(filename)
@@ -20,6 +27,14 @@ def mutate(filename):
     nodeVisitor = MyNodeTransformer()
     transformed = nodeVisitor.visit(parsed)
     return ast.parse(to_source(transformed))
+
+def count_loops(filename):
+    file = open(filename)
+    contents = file.read()
+    # Generate the AST
+    parsed = ast.parse(contents)
+    loop_count = CountLoops(parsed)
+    return loop_count
 
 level0 = []
 level1 = []
@@ -45,7 +60,7 @@ def ast_print(node, level=0):
 filename = sys.argv[2]
 input_tree = mutate(filename)
 ast_print(input_tree)
-
+count_out = count_loops(filename)
 level0 = sorted(level0)
 level1 = sorted(level1)
 level2 = sorted(level2)
@@ -115,7 +130,7 @@ pc_1 = list(zip(parents1, children1))
 pc_2 = list(zip(parents2, children2))
 pc_1.sort
 pc_2.sort
-
+print("Loops = ", count_out)
 output_file_lev0 = open((filename_prognum+"_lev0.txt"), "w")
 for ele in level0:
     output_file_lev0.write(ele)
