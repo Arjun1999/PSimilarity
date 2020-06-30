@@ -1,5 +1,5 @@
 # Enter your code here. Read input from STDIN. Print output to STDOUT
 
-int_a = int(raw_input())
+int_a = int(input())
 for i in range(int_a):
-    print pow(i,2)
+    print(pow(i,2))

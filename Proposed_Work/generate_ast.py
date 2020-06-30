@@ -11,12 +11,12 @@ class MyNodeTransformer(ast.NodeTransformer):
             return ast.copy_location(result, node)
         return node
 
-def CountLoops(tree):
-    loop_count = 0
-    for node in ast.walk(tree):
-        if(isinstance(node, (ast.For, ast.While))):
-            loop_count += 1
-    return loop_count
+# def CountLoops(tree):
+#     loop_count = 0
+#     for node in ast.walk(tree):
+#         if(isinstance(node, (ast.For, ast.While))):
+#             loop_count += 1
+#     return loop_count
 
 # To perform the above defined modification on the source code of our choice
 def mutate(filename):
@@ -28,18 +28,21 @@ def mutate(filename):
     transformed = nodeVisitor.visit(parsed)
     return ast.parse(to_source(transformed))
 
-def count_loops(filename):
-    file = open(filename)
-    contents = file.read()
-    # Generate the AST
-    parsed = ast.parse(contents)
-    loop_count = CountLoops(parsed)
-    return loop_count
+# def count_loops(filename):
+#     file = open(filename)
+#     contents = file.read()
+#     # Generate the AST
+#     parsed = ast.parse(contents)
+#     loop_count = CountLoops(parsed)
+#     return loop_count
 
 level0 = []
 level1 = []
 level2 = []
 
+# level0_assign = []
+# level1_assign = []
+# level2_assign = []
 # Extraction of nodes from every level
 def ast_print(node, level=0):
     if level==0:
@@ -57,14 +60,30 @@ def ast_print(node, level=0):
         elif isinstance(value, ast.AST):
             ast_print(value, level=level+1)
 
+# def node_types():
+#     for n in level1:
+#         if isinstance(n, ast.Assign):
+#             level1_assign.append(ast.dump(n))
+
 filename = sys.argv[2]
+# file = open(filename)
+# contents = file.read()
+# Generate the AST
+# parsed = ast.parse(contents)
+# print(ast.dump(parsed))
 input_tree = mutate(filename)
 ast_print(input_tree)
-count_out = count_loops(filename)
-level0 = sorted(level0)
-level1 = sorted(level1)
-level2 = sorted(level2)
-
+# count_out = count_loops(filename)
+# level0 = sorted(level0)
+# level1 = sorted(level1)
+# level2 = sorted(level2)
+# node_types()
+# print(level1_assign)
+# print(level0)
+# print("level1 ")
+# print(level1)
+# print("level 2")
+# print(level2)
 program_number1 = sys.argv[1]
 
 filename_prognum = "program"+program_number1
@@ -130,7 +149,7 @@ pc_1 = list(zip(parents1, children1))
 pc_2 = list(zip(parents2, children2))
 pc_1.sort
 pc_2.sort
-print("Loops = ", count_out)
+# print("Loops = ", count_out)
 output_file_lev0 = open((filename_prognum+"_lev0.txt"), "w")
 for ele in level0:
     output_file_lev0.write(ele)

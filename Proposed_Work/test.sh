@@ -8,6 +8,6 @@ python3 generate_ast.py 1 $REF_SOL
 for f in $SUBMISSIONS/*
 do
     echo "Testing $f "
-    python generate_ast.py 2 $f
-    python winnowing.py program1 program2
+    python3 generate_ast.py 2 $f
+    python3 winnowing.py program1 program2
 done

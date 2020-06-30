@@ -217,23 +217,23 @@ total_similarity_score = ((0.5*final_cosine_similarity_lev0) + (0.3*final_cosine
 print("Total similarity score : \n", round(total_similarity_score, 2))
 # Cosine similarity seems to be highest for k = 11 and t = 15, should try others.
 
-filename1 = "pycallgraph1"
-filename2 = "pycallgraph2"
+# filename1 = "pycallgraph1"
+# filename2 = "pycallgraph2"
 
-G1 = nx.MultiDiGraph(nx.drawing.nx_pydot.read_dot(filename1))
-G2 = nx.MultiDiGraph(nx.drawing.nx_pydot.read_dot(filename2))
+# G1 = nx.MultiDiGraph(nx.drawing.nx_pydot.read_dot(filename1))
+# G2 = nx.MultiDiGraph(nx.drawing.nx_pydot.read_dot(filename2))
 
-# networkx
-ged = nx.graph_edit_distance(G1,G2)
-print("Computing Graph Edit Distance ...")
-print("Graph Edit Distance from Networkx : ", ged)
+# # networkx
+# ged = nx.graph_edit_distance(G1,G2)
+# print("Computing Graph Edit Distance ...")
+# print("Graph Edit Distance from Networkx : ", ged)
 
-sub_ged = 0.2 * ged
+# sub_ged = 0.2 * ged
 
-if(sub_ged >= 0.25):
-    sub_ged = 0.25
+# if(sub_ged >= 0.25):
+#     sub_ged = 0.25
 
-if(sub_ged > 0):
-    print("Final Score: ", round((0.8*total_similarity_score) - (0.2*sub_ged), 2))
-else:
-    print("Final Score: ", round(total_similarity_score, 2))
+# if(sub_ged > 0):
+#     print("Final Score: ", round((0.8*total_similarity_score) - (0.2*sub_ged), 2))
+# else:
+#     print("Final Score: ", round(total_similarity_score, 2))
