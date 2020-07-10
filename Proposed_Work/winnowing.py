@@ -209,12 +209,38 @@ final_cosine_similarity_lev2 = round(mean(lev2s), 2)
 # print("Cosine similarity Level 1 : \n", cluster.util.cosine_distance(f11,f21))
 # print("Cosine similarity Level 2 : \n", cluster.util.cosine_distance(f12,f22))
 
-print("Cosine similarity Level 0 : \n", final_cosine_similarity_lev0)
-print("Cosine similarity Level 1 : \n", final_cosine_similarity_lev1)
-print("Cosine similarity Level 2 : \n", final_cosine_similarity_lev2)
+# print("Cosine similarity Level 0 : \n", final_cosine_similarity_lev0)
+# print("Cosine similarity Level 1 : \n", final_cosine_similarity_lev1)
+# print("Cosine similarity Level 2 : \n", final_cosine_similarity_lev2)
 
-total_similarity_score = ((0.5*final_cosine_similarity_lev0) + (0.3*final_cosine_similarity_lev1) + (0.2*final_cosine_similarity_lev2))
-print("Total similarity score : \n", round(total_similarity_score, 2))
+a_file = open(program1+"_count.txt")
+b_file = open(program2+"_count.txt")
+count_values=[]
+for c in range(3):
+    a = int(a_file.readline())
+    b = int(b_file.readline())
+    count_values.append([a,b])
+
+normalization_score = 0
+t=0
+for c in range(3):
+    x=count_values[c][0]
+    y=count_values[c][1]
+    if(x + y)!=0:
+        t=t+1
+        if x>y:
+            s = 1-((x-y)/(x+y))
+        else:
+            s = 1-((y-x)/(x+y))    
+        normalization_score+=(10*s)
+
+normalization_score=normalization_score/(t*10)
+total_similarity_score_win = ((0.5*final_cosine_similarity_lev0) + (0.3*final_cosine_similarity_lev1) + (0.2*final_cosine_similarity_lev2))
+normalization_score = normalization_score
+print("Winnowing similarity score : \n", round(total_similarity_score_win, 2))
+print("Normalization score : \n", normalization_score)
+
+print("Total score = : \n", (total_similarity_score_win*70)+(normalization_score*30))
 # Cosine similarity seems to be highest for k = 11 and t = 15, should try others.
 
 # filename1 = "pycallgraph1"
