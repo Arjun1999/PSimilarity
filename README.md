@@ -74,21 +74,6 @@ If you wish to use this work as is or as a source of reference, kindly cite the 
 
 _Source-Code Similarity Measurement: Syntax Tree Fingerprinting for Automated Evaluation_
 
-**_BIBTEX_**
-@inproceedings{10.1145/3486001.3486228,
-author = {Verma, Arjun and Udhayanan, Prateksha and Shankar, Rahul Murali and KN, Nikhila and Chakrabarti, Sujit Kumar},
-title = {Source-Code Similarity Measurement: Syntax Tree Fingerprinting for Automated Evaluation},
-year = {2021},
-isbn = {9781450385947},
-publisher = {Association for Computing Machinery},
-address = {New York, NY, USA},
-url = {https://doi.org/10.1145/3486001.3486228},
-doi = {10.1145/3486001.3486228},
-abstract = { A majority of the current automated evaluation tools focus on grading a program based only on functionally testing the outputs. This approach suffers both false positives (i.e. finding errors where there are not any) and false negatives (missing out on actual errors). In this paper, we present a novel system which emulates manual evaluation of programming assignments based on the structure and not the functional output of the program using structural similarity between the given program and a reference solution. We propose an evaluation rubric for scoring structural similarity with respect to a reference solution. We present an ML based approach to map the system predicted scores to the scores computed using the rubric. Empirical evaluation of the system is done on a corpus of Python programs extracted from the popular programming platform, HackerRank, in combination with programming assignments submitted by students undertaking an undergraduate Python programming course. The preliminary results have been encouraging with the errors reported being as low as 12 percent with a deviation of about 3 percent, showing that the automatically generated scores are in high correlation with the instructor assigned scores.},
-booktitle = {The First International Conference on AI-ML-Systems},
-articleno = {8},
-numpages = {7},
-keywords = {Program Structural Similarity, Evaluation Rubric, Syntax Tree Fingerprinting, Automated Evaluation},
-location = {Bangalore, India},
-series = {AIMLSystems 2021}
-} 
+**_ACM Ref_**
+
+Arjun Verma, Prateksha Udhayanan, Rahul Murali Shankar, Nikhila KN, and Sujit Kumar Chakrabarti. 2021. Source-Code Similarity Measurement: Syntax Tree Fingerprinting for Automated Evaluation. In <i>The First International Conference on AI-ML-Systems</i> (<i>AIMLSystems 2021</i>). Association for Computing Machinery, New York, NY, USA, Article 8, 1–7. DOI:https://doi.org/10.1145/3486001.3486228
